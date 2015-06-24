@@ -1,41 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="stylesheets/contents.css">
-    <title>OpenCL Study Notes</title>
-</head>
+		<head>
+				<meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+				<link rel="stylesheet" href="stylesheets/contents.css">
+				<title>OpenCL Study Notes</title>
+		</head>
 
-<body>
-		<div class="wrapper">
-				<header algin="center">
-						<h1>OpenCL Study Notes</h1>
-				</header>
-				<section>
-						<h1>The installation of OpenCL</h1>
-				</section>
+		<body>
+				<div class="wrapper">
+						<header algin="center">
+								<h1>OpenCL Study Notes</h1>
+						</header>
+						<section>
+								<h1>A comparison between OpenCL and CUDA</h1>
+								<ul>
+										<li>
+												<strong>Community and programming support: </strong> 
+												<ul>
+														<li>
+																CUDA has some exclusive developing tools: CUDA Toolkit, NVIDIA GPU Computing SDK and NSight; 
+														</li>
+														<li>
+																bunch of libries: cuFFT, cuBLAS, cuSPARSE, cuRAND, NPP, Thrust and a professional and reliable compiler NVCC. While on the other hand, only AMD provides a relatively stable OpenCL driver.
+														</li>
+														<li>
+																In short, CUDA has a better ecosystem and is easier to use and develop. 
+														</li>
+												</ul>
+										</li>
 
-				<section>
-						<h1>Cooperation with Mac</h1>
-				</section>
-		</div>
-</body>
-<footer>
-    <p>Last Update:<i id="lastmodified"></i></p>
-    <script>
-    var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
-    var isFirefox = typeof InstallTrigger !== 'undefined';
-    var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
-    var isChrome = !!window.chrome && !isOpera;
+										<li>
+												<strong>Generality and Popularity: </strong>
+												<ul>
+														<li>
+																OpenCL is a cross platform project which has great generality. 
+														</li>
+														<li>
+																many national laboratory use OpenCL to do the scientific calculation. 
+														</li>
+														<li>
+																OpenCL has a Task-Parallel Execution Mode which overrules CUDA as CUDA only supports the parallelism of data. 
+														</li>
+														<li>
+																In short, OpenCL is designed for all kinds of parallel computing, such as GPU, multi-core CPU, and other cell structures (so here the parallel computing is only part of OpenCL's capability), while CUDA is specific for NV GPU structure.(so parallel computing on NV graphic cards is all that CUDA can do).
+														</li>
+														<li>
+																Another thing is that NV card only supports OpenCL 1.2.
+														</li>
+												</ul>
+										</li>
 
-    var lm_time = new Date(document.lastModified);
+										<li>
+												<strong>Performance: </strong> 
+												<ul>
+														<li>
+																While on NV graphic cards, of course CUDA has a better performance than OpenCL.
+														</li>
+												</ul>
+										</li>
 
-    if (isSafari)
-        lm_time.setHours(lm_time.getHours() + 8);
-    document.getElementById("lastmodified").innerHTML = lm_time;
-    </script>
-</footer>
+										<li>
+												<strong>Market Share: </strong>
+												<ul>
+														<li>
+																CUDA is now dominate in the main GPGPU market and most scientific calculation, bio research, financial analysis tasks are done with CUDA.(this is mainly due to the strong promotion by NVIDIA)
+														</li>
+												</ul>
+										</li>
+
+										<li>
+												<strong>Programming difficulity: </strong>
+												<ul>
+														<li>
+																CUDA is a well wrapped library, so the programmers don't need to know the hardware structure well to write CUDA programs. However OpenCL is a lower level function set, of a much better knowledge of the bottom design of the chips are required.
+														</li>
+												</ul>
+										</li>
+
+										<li>
+												<strong>Some other things: </strong>
+												<ul>
+														<li>
+																AMD and NV has different implementation of OpenCL, so generally we cannot expected the program would behave exactly the same on A card and N card. And since some of the differences are very corner and hard to notice, it will still be hard to tune the program of one system to another.
+														</li>
+												</ul>
+										</li> 
+								</ul>
+						</section>
+
+						<section>
+								<h1>a Brief history of OpenCL</h1>
+
+						</section>
+
+						<section>
+								<h1>The installation of OpenCL</h1>
+						</section>
+
+						<section>
+								<h1>Cooperation with Mac</h1>
+						</section>
+
+						<section>
+								<h1>General Informations online</h1>
+								<ul>
+										<li>
+												<a href="http://www.zhihu.com/question/19780484">CUDA和OpenCL有什么区别？ - 图形处理器（GPU） - 知乎 </a>
+										</li>
+										<li>
+												<a href="http://www.kimicat.com/opencl-1/opencl-jiao-xue-yi">OpenCL 教學（一） - Hotball's Hive</a>
+
+										</li>
+										<li>
+												<a href="http://bookzz.org/dl/1171033/51bd16">OpenCL Programming Guide -- the most recommended Instruction book</a>
+
+										</li>
+								</ul>
+						</section>
+				</div>
+		</body>
+		<footer>
+				<p>Last Update:<i id="lastmodified"></i></p>
+				<script>
+var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+var isFirefox = typeof InstallTrigger !== 'undefined';
+var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+var isChrome = !!window.chrome && !isOpera;
+
+var lm_time = new Date(document.lastModified);
+
+if (isSafari)
+		lm_time.setHours(lm_time.getHours() + 8);
+		document.getElementById("lastmodified").innerHTML = lm_time;
+				</script>
+		</footer>
 
 </html>
